@@ -81,6 +81,7 @@ app.get("/api/products", (req, res) => {
 
 app.post("/api/products", (req, res) => {
   setProducts(db, req.body.id, req.body);
+  res.json({ status: 200, statusText: "OK" });
 });
 
 app.get("/api/cart", (req, res) => {
@@ -91,10 +92,12 @@ app.get("/api/cart", (req, res) => {
 
 app.post("/api/cart", (req, res) => {
   setCart(db, req.body.id, req.body);
+  res.json({ status: 200, statusText: "OK" });
 });
 
 app.delete("/api/cart", (req, res) => {
   deleteCart(db, req.body.id);
+  res.json({ status: 200, statusText: "OK" });
 });
 
 app.listen(PORT, () => {
